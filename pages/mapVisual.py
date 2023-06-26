@@ -9,13 +9,16 @@ df = pd.read_csv(
     encoding='cp949'
 )
 
-# 지도 초기화
-m = folium.Map(location=[37.5502, 126.982], zoom_start=8)  # 초기 위치와 줌 레벨 설정
-                                                            # 초기 위치 -> 서울의 중심 location=[37.5502, 126.982]
+# 서울-경기도 부근 지도 생성
+m = folium.Map(location=[37.5665, 126.9780], zoom_start=10)
+
 # 데이터프레임 순회하며 위치 표시
 for index, row in df.iterrows():
-    if pd.notnull(row['위도']) and pd.notnull(row['경도']): # 각 행의 위도와 경도 값이 유효한 경우에만 위치를 표시합니다. (pd.notnull() 함수를 사용하여 유효성을 확인합니다.)
-        folium.Marker(location=[row['위도'], row['경도']]).add_to(m) # 위치를 표시하기 위해 folium.Marker를 생성하고 지도에 추가합니다.
+    if pd.notnull(row['위도']) and pd.notnull(row['경도']):
+        lat, lon = row['위도'], row['경도']
+        # 서울-경기도 부근인 경우에만 표시
+        if 37.0 <= lat <= 38.5 and 126.0 <= lon <= 127.5:
+            folium.Marker(location=[lat, lon]).add_to(m)
 
 # 지도 출력
 st_folium(m)
