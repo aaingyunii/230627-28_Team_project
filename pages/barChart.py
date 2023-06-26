@@ -1,6 +1,6 @@
 import streamlit as st
 import pandas as pd
-import plotly.express as px
+import plotly.graph_objects as go
 
 df = pd.read_csv(
     "https://raw.githubusercontent.com/aaingyunii/230627-28_Team_project/main/%EC%9D%91%EA%B8%89%EC%9D%98%EB%A3%8C%EA%B8%B0%EA%B4%80%EB%B0%8F%EC%9D%91%EA%B8%89%EC%9D%98%EB%A3%8C%EC%A7%80%EC%9B%90%EC%84%BC%ED%84%B0%ED%98%84%ED%99%A9.csv",
@@ -11,7 +11,7 @@ df = pd.read_csv(
 hospital_count = df['시군명'].value_counts()
 
 # 바 차트 생성
-fig = px.bar(df, x=df['시군명'], y=hospital_count)
+fig = go.Bar(df, x=df['시군명'], y=hospital_count)
 
 # Streamlit 앱에 바 차트 표시
 st.plotly_chart(fig)
