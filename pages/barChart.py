@@ -24,7 +24,7 @@ df = pd.read_csv(
 hospital_count = df['시군명'].value_counts().reset_index()
 
 # 바 차트 생성
-fig = px.bar(hospital_count, x='시군명', y='의료기관수')
+fig = px.bar(hospital_count, x='시군명', y=hospital_count)
 
 # Streamlit 앱에 표시
 st.plotly_chart(fig)
