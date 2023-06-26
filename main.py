@@ -34,4 +34,4 @@ m.save("map.html")
 
 # Use Streamlit to display the map
 st.markdown('<h1>Hospital Map</h1>', unsafe_allow_html=True)
-st.markdown('<iframe src="map.html" width="1000" height="500"></iframe>', unsafe_allow_html=True)
+st.markdown('<iframe src="maps/map.html" width="1000" height="500"></iframe>', unsafe_allow_html=True)
