@@ -7,16 +7,16 @@ df = pd.read_csv(
     encoding='cp949'
 )
 
+# # 시도별 의료기관 수 계산
+hospital_count = df['시군명'].value_counts()
 
 # 바 차트 생성
-fig = px.bar(df, x='시도', y='의료기관수')
+fig = px.bar(df, x=df['시군명'], y=hospital_count)
 
 # Streamlit 앱에 바 차트 표시
 st.plotly_chart(fig)
 
 
-# # 시도별 의료기관 수 계산
-# hospital_count = df['시군명'].value_counts()
 
 # # 시각화
 # plt.figure(figsize=(10, 6))
