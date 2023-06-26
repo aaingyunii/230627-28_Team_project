@@ -8,35 +8,23 @@ df = pd.read_csv(
     encoding='cp949'
 )
 
-# # 시도별 의료기관 수 계산
-hospital_count = df['시군명'].value_counts()
+# # # 시도별 의료기관 수 계산
+# hospital_count = df['시군명'].value_counts()
 
-# Streamlit 앱에 표시
-st.pyplot(plt.figure(figsize=(10, 6)))
-plt.bar(hospital_count.index, hospital_count.values)
-plt.xlabel('시도')
-plt.ylabel('의료기관 수')
-plt.title('시도별 의료기관 수')
-plt.xticks(rotation=45)
-st.pyplot()
-
-
-# new_df= df.copy()
-
-
-# # 바 차트 생성
-# fig = go.Bar(df, x=df['시군명'], y=hospital_count)
-
-# # Streamlit 앱에 바 차트 표시
-# st.plotly_chart(fig)
-
-
-
-# # 시각화
-# plt.figure(figsize=(10, 6))
-# hospital_count.plot(kind='bar')
+# # Streamlit 앱에 표시
+# st.pyplot(plt.figure(figsize=(10, 6)))
+# plt.bar(hospital_count.index, hospital_count.values)
 # plt.xlabel('시도')
 # plt.ylabel('의료기관 수')
 # plt.title('시도별 의료기관 수')
 # plt.xticks(rotation=45)
-# plt.show()
+# st.pyplot()
+
+# 시도별 의료기관 수 계산
+hospital_count = df['시군명'].value_counts().reset_index()
+
+# 바 차트 생성
+fig = px.bar(hospital_count, x='index', y='시군명')
+
+# Streamlit 앱에 표시
+st.plotly_chart(fig)
