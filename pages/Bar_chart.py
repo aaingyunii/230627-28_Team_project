@@ -1,3 +1,4 @@
+# 필요한 라이브러리 가져오기
 import streamlit as st
 import plotly.graph_objects as go
 import matplotlib.pyplot as plt
@@ -22,7 +23,6 @@ st.title("막대 그래프")
 # 시도별 의료기관 수 계산
 hospital_count = df['시군명'].value_counts()
 
-# 챗지피한테 물어보기
 st.set_option('deprecation.showPyplotGlobalUse', False)
 
 tab1, tab2 = st.tabs(["Plotly", "Pyplot"])
@@ -53,14 +53,4 @@ with tab2:
     plt.xticks(rotation=90, fontproperties=fontprop)  # 한글 폰트 설정
     st.pyplot()
 
-
-        
-# # Streamlit 앱에 표시
-# st.pyplot(plt.figure(figsize=(10, 6)))
-# plt.bar(hospital_count.index, hospital_count.values)
-# plt.xlabel('시도')
-# plt.ylabel('의료기관 수')
-# plt.title('시도별 의료기관 수')
-# plt.xticks(rotation=45)
-# st.pyplot()
 
