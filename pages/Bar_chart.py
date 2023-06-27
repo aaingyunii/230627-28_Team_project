@@ -6,17 +6,18 @@ import common
 # 한글 폰트 적용
 import matplotlib.font_manager as fm
 
-st.title("Bar chart local and medical center")
+# common 파일을 통해 웹 페이지 탭 꾸미기
+common.page_config()
 
 # 한글 폰트 설정
 font_path = './NanumGothic.ttf'  # 본인의 한글 폰트 파일 경로로 변경해야 합니다.
 fontprop = fm.FontProperties(fname=font_path)
 plt.rc('font', family=fontprop.get_name())
 
-
-common.page_config()
-
+# common 파일을 통해 데이터프레임 불러오기
 df = common.get_data()
+
+st.title("Bar chart local and medical center")
 
 # 시도별 의료기관 수 계산
 hospital_count = df['시군명'].value_counts()
