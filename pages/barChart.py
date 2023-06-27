@@ -10,17 +10,10 @@ df = common.get_data()
 # 시도별 의료기관 수 계산
 hospital_count = df['시군명'].value_counts()
 
-tab1, tab2 = st.tabs(["Pyplot", "Plotly"])
+tab1, tab2 = st.tabs(["Plotly", "Pyplot"])
+
 
 with tab1:
-    plt.bar(hospital_count.index, hospital_count.values)
-    plt.xlabel('시도')
-    plt.ylabel('의료기관 수')
-    plt.title('시도별 의료기관 수')
-    plt.xticks(rotation=90)
-    st.pyplot()
-
-with tab2:
     fig = go.Figure(data=[go.Bar(x=hospital_count.index, y=hospital_count.values)])
     fig.update_layout(
         xaxis=dict(
@@ -34,6 +27,14 @@ with tab2:
     )
     st.plotly_chart(fig,
                     use_container_width=True)
+
+with tab2:
+    plt.bar(hospital_count.index, hospital_count.values)
+    plt.xlabel('시도')
+    plt.ylabel('의료기관 수')
+    plt.title('시도별 의료기관 수')
+    plt.xticks(rotation=90)
+    st.pyplot()
 
         
 # # Streamlit 앱에 표시
