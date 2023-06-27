@@ -64,8 +64,8 @@ for idx, row in hospital_counts.iterrows():
     ).add_to(m)
 
 # 텍스트 설명 추가
-st.sidebar.title("시군별 병원 및 의료센터")
-st.sidebar.markdown("* 시군별 병원 및 의료센터 숫자와 위치를 알 수 있습니다.  \n* 위치를 클릭하면, 병원 이름과 대표 번호 및 특수 센터 보유 여부를 알 수 있습니다.")
+st.subheader("시군별 병원 및 의료센터")
+st.write("* 시군별 병원 및 의료센터 숫자와 위치를 알 수 있습니다.  \n* 위치를 클릭하면, 병원 이름과 대표 번호 및 특수 센터 보유 여부를 알 수 있습니다.")
 
 # 지도 출력
 st_folium(m)
