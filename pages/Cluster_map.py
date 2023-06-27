@@ -8,16 +8,17 @@ common.page_config()
 
 st.title("시군별 병원 및 의료센터")
 
-@st.cache_data
-def load_data():
-    data = common.get_data()
-    data['소재지'] = data['소재지도로명주소'].str.split(' ').str[:2].apply(lambda x: ' '.join(x))
-    data = data[['시군명', '병원명/센터명', '업무구분명', '대표전화번호', '소재지', '소재지도로명주소', '소재지지번주소', '소재지우편번호', '위도', '경도', '응급의료지원센터여부', '전문응급의료센터여부', '전문응급센터전문분야', '권역외상센터여부', '지역외상센터여부']]
-    return data
+# common.get_data()
+# @st.cache_data
+# def load_data():
+#     data = common.get_data()
+#     data['소재지'] = data['소재지도로명주소'].str.split(' ').str[:2].apply(lambda x: ' '.join(x))
+#     data = data[['시군명', '병원명/센터명', '업무구분명', '대표전화번호', '소재지', '소재지도로명주소', '소재지지번주소', '소재지우편번호', '위도', '경도', '응급의료지원센터여부', '전문응급의료센터여부', '전문응급센터전문분야', '권역외상센터여부', '지역외상센터여부']]
+#     return data
 
 @st.cache_data(experimental_allow_widgets=True)
 def load_map():
-    data = load_data()
+    data = common.get_data()
 
     m = folium.Map(location=[data['위도'].mean(), data['경도'].mean()], zoom_start=10)
 
