@@ -4,7 +4,7 @@ import matplotlib.pyplot as plt
 import common
 import warnings
 
-warnings.filterwarnings("ignore")
+
 
 # 한글 폰트 적용
 import matplotlib.font_manager as fm
@@ -21,6 +21,8 @@ df = common.get_data()
 
 # 시도별 의료기관 수 계산
 hospital_count = df['시군명'].value_counts()
+
+st.set_option('deprecation.showPyplotGlobalUse', False)
 
 tab1, tab2 = st.tabs(["Plotly", "Pyplot"])
 
@@ -47,6 +49,7 @@ with tab2:
     plt.title('시도별 의료기관 수', fontproperties=fontprop)  # 한글 폰트 설정
     plt.xticks(rotation=90, fontproperties=fontprop)  # 한글 폰트 설정
     st.pyplot()
+
 
         
 # # Streamlit 앱에 표시
