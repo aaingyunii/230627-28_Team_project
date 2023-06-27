@@ -10,7 +10,7 @@ import matplotlib.font_manager as fm
 common.page_config()
 
 # 한글 폰트 설정
-font_path = './NanumGothic.ttf'  # 본인의 한글 폰트 파일 경로로 변경해야 합니다.
+font_path = './NanumGothic.ttf'  # 한글 폰트 파일 경로
 fontprop = fm.FontProperties(fname=font_path)
 plt.rc('font', family=fontprop.get_name())
 
@@ -22,6 +22,7 @@ st.title("Bar chart local and medical center")
 # 시도별 의료기관 수 계산
 hospital_count = df['시군명'].value_counts()
 
+# 챗지피한테 물어보기
 st.set_option('deprecation.showPyplotGlobalUse', False)
 
 tab1, tab2 = st.tabs(["Plotly", "Pyplot"])
