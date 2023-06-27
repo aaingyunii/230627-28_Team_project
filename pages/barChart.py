@@ -3,6 +3,15 @@ import plotly.graph_objects as go
 import matplotlib.pyplot as plt
 import common
 
+# 한글 폰트 적용
+import matplotlib.font_manager as fm
+
+# 한글 폰트 설정
+font_path = './NanumGothic.ttf'  # 본인의 한글 폰트 파일 경로로 변경해야 합니다.
+fontprop = fm.FontProperties(fname=font_path)
+plt.rc('font', family=fontprop.get_name())
+
+
 common.page_config()
 
 df = common.get_data()
@@ -30,10 +39,10 @@ with tab1:
 
 with tab2:
     plt.bar(hospital_count.index, hospital_count.values)
-    plt.xlabel('local')
-    plt.ylabel('Number of hospital')
-    plt.title('Number of Medical Institutions by Province')
-    plt.xticks(rotation=90)
+    plt.xlabel('시도', fontproperties=fontprop)  # 한글 폰트 설정
+    plt.ylabel('의료기관 수', fontproperties=fontprop)  # 한글 폰트 설정
+    plt.title('시도별 의료기관 수', fontproperties=fontprop)  # 한글 폰트 설정
+    plt.xticks(rotation=90, fontproperties=fontprop)  # 한글 폰트 설정
     st.pyplot()
 
         
