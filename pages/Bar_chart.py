@@ -17,7 +17,7 @@ plt.rc('font', family=fontprop.get_name())
 # common 파일을 통해 데이터프레임 불러오기
 df = common.get_data()
 
-st.title("Bar chart local and medical center")
+st.title("막대 그래프")
 
 # 시도별 의료기관 수 계산
 hospital_count = df['시군명'].value_counts()

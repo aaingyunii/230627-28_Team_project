@@ -9,6 +9,8 @@ import matplotlib.font_manager as fm
 
 common.page_config()
 
+st.title("파이 차트")
+
 # 한글 폰트 설정
 font_path = './NanumGothic.ttf'  # 한글 폰트 파일 경로
 fontprop = fm.FontProperties(fname=font_path)

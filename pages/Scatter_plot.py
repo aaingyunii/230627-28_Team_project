@@ -10,7 +10,7 @@ import matplotlib.font_manager as fm
 common.page_config()
 
 
-st.title("Scatter Plot")
+st.title("산점도")
 
 # 한글 폰트 설정
 font_path = './NanumGothic.ttf'  # 한글 폰트 파일 경로.

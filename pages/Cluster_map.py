@@ -8,7 +8,6 @@ common.page_config()
 
 st.title("시군별 병원 및 의료센터")
 
-
 @st.cache_data
 def load_data():
     data = common.get_data()
