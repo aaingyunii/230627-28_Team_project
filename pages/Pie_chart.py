@@ -42,14 +42,12 @@ with tab1:
     st.plotly_chart(fig, use_container_width=True)
 
 
-# pyplot으로 바차트 만들기
+# pyplot으로 파이차트 만들기
 with tab2:
     fig, ax = plt.subplots(figsize=(8, 8))
-    ax.pie(labels, counts)
-    ax.set_xlabel('기관구분명', fontproperties=fontprop)
-    ax.set_ylabel('개수', fontproperties=fontprop)
+    ax.pie(counts, labels=labels, autopct='%1.1f%%', startangle=90, textprop ='{fontproperties : fontprop}')
+    ax.axis('equal')  # 원형 모양 유지
     ax.set_title('기관구분별 분포', fontproperties=fontprop)
-    ax.set_xticklabels(labels, rotation=90, fontproperties=fontprop)
     st.pyplot(fig)
 
 
