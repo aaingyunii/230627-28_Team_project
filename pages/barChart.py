@@ -2,6 +2,9 @@ import streamlit as st
 import plotly.graph_objects as go
 import matplotlib.pyplot as plt
 import common
+import warnings
+
+warnings.filterwarnings("ignore")
 
 # 한글 폰트 적용
 import matplotlib.font_manager as fm
