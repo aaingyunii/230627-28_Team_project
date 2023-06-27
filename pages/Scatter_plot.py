@@ -28,7 +28,7 @@ tab1, tab2 = st.tabs(["Plotly", "Pyplot"])
 
 # plotly로 산점도 그래프 만들기
 with tab1:
-    fig = go.Figure(data=[go.scatter(x=df['경도'], y=df['위도'])])
+    fig = go.Figure(data=[go.scatter(x=df['경도'], y=df['위도'], mode='markers')])
     fig.update_layout(
         xaxis=dict(
             title='시도',
@@ -39,8 +39,7 @@ with tab1:
         ),
         title='시도별 의료기관 수',
     )
-    st.plotly_chart(fig,
-                    use_container_width=True)
+    st.plotly_chart(fig, use_container_width=True)
 
 
 # pyplot으로 산점도 그래프 만들기
