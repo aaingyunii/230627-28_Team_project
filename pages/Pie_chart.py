@@ -29,33 +29,32 @@ tab1, tab2 = st.tabs(["Plotly", "Pyplot"])
 
 # plotly로 파이차트 만들기
 with tab1:
-    fig = go.Figure(data = go.Pie(
-                    labels=center_values.index,
-                    values=center_values.values,
-                    textinfo='percent',
-                    hoverinfo='label+percent',
-))
+    fig = go.Figure(data=go.Pie(
+        labels=labels,
+        values=counts,
+        textinfo='percent',
+        hoverinfo='label+percent',
+    ))
     fig.update_layout(
-            title='기관구분별 분포',
-            fontproperties=fontprop
+        title='기관구분별 분포',
+        font=dict(family=fontprop.get_name()),
     )
-    st.plotly_chart(fig,
-                    use_container_width=True)
+    st.plotly_chart(fig, use_container_width=True)
 
 
 # pyplot으로 바차트 만들기
 with tab2:
-    plt.bar(hospital_count.index, hospital_count.values)
-    plt.xlabel('시도', fontproperties=fontprop)  # 한글 폰트 설정
-    plt.ylabel('의료기관 수', fontproperties=fontprop)  # 한글 폰트 설정
-    plt.title('시도별 의료기관 수', fontproperties=fontprop)  # 한글 폰트 설정
-    plt.xticks(rotation=90, fontproperties=fontprop)  # 한글 폰트 설정
-    st.pyplot()
+    fig, ax = plt.subplots(figsize=(8, 8))
+    ax.bar(labels, counts)
+    ax.set_xlabel('기관구분명', fontproperties=fontprop)
+    ax.set_ylabel('개수', fontproperties=fontprop)
+    ax.set_title('기관구분별 분포', fontproperties=fontprop)
+    ax.set_xticklabels(labels, rotation=90, fontproperties=fontprop)
+    st.pyplot(fig)
 
 
-
-fig, ax = plt.subplots(figsize=(8, 8))
-ax.pie(counts, labels=labels, autopct='%1.1f%%', startangle=90)
-ax.axis('equal')  # 원형 모양 유지
-ax.set_title('기관구분별 분포',fontproperties=fontprop)
-st.pyplot(fig)
+# fig, ax = plt.subplots(figsize=(8, 8))
+# ax.pie(counts, labels=labels, autopct='%1.1f%%', startangle=90)
+# ax.axis('equal')  # 원형 모양 유지
+# ax.set_title('기관구분별 분포',fontproperties=fontprop)
+# st.pyplot(fig)
