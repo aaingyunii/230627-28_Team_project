@@ -1,7 +1,9 @@
 import pandas as pd
 import streamlit as st
 import matplotlib.pyplot as plt
+import plotly.graph_objects as go
 import common
+
 #한글 폰트 적용
 import matplotlib.font_manager as fm
 
