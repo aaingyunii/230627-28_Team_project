@@ -9,6 +9,7 @@ import warnings
 # 한글 폰트 적용
 import matplotlib.font_manager as fm
 
+st.title("Bar chart between '시군명' and '의료기관 수'")
 # 한글 폰트 설정
 font_path = './NanumGothic.ttf'  # 본인의 한글 폰트 파일 경로로 변경해야 합니다.
 fontprop = fm.FontProperties(fname=font_path)
