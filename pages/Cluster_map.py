@@ -58,7 +58,7 @@ def load_map():
             tooltip=f'{city}: {count} hospitals/centers',
         ).add_to(m)
 
-    st.subheader("시군별 병원 및 의료센터")
+    # st.subheader("시군별 병원 및 의료센터")
     st.write("* 시군별 병원 및 의료센터 숫자와 위치를 알 수 있습니다.  \n* 위치를 클릭하면, 병원 이름과 대표 번호 및 특수 센터 보유 여부를 알 수 있습니다.")
 
     st_folium(m)
