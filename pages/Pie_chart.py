@@ -45,7 +45,7 @@ with tab1:
 # pyplot으로 바차트 만들기
 with tab2:
     fig, ax = plt.subplots(figsize=(8, 8))
-    ax.bar(labels, counts)
+    ax.pie(labels, counts)
     ax.set_xlabel('기관구분명', fontproperties=fontprop)
     ax.set_ylabel('개수', fontproperties=fontprop)
     ax.set_title('기관구분별 분포', fontproperties=fontprop)
