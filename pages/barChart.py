@@ -30,9 +30,9 @@ with tab1:
 
 with tab2:
     plt.bar(hospital_count.index, hospital_count.values)
-    plt.xlabel('시도')
-    plt.ylabel('의료기관 수')
-    plt.title('시도별 의료기관 수')
+    plt.xlabel('local')
+    plt.ylabel('Number of hospital')
+    plt.title('Number of Medical Institutions by Province')
     plt.xticks(rotation=90)
     st.pyplot()
 
