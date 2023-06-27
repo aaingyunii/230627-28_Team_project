@@ -45,13 +45,9 @@ with tab1:
 # pyplot으로 파이차트 만들기
 with tab2:
     fig, ax = plt.subplots(figsize=(8, 8))
-    ax.pie(counts, labels=labels, autopct='%1.1f%%', startangle=90 )
+    ax.pie(counts, labels=labels, autopct='%1.1f%%', startangle=90,textprops={'fontproperties': fontprop} )
     ax.axis('equal')  # 원형 모양 유지
     ax.set_title('기관구분별 분포', fontproperties=fontprop)
-    ax.set_xlabel('한글 X축 레이블', fontproperties=fontprop)
-    ax.set_ylabel('한글 Y축 레이블', fontproperties=fontprop)
-    ax.legend(prop=fontprop)
-    # ax.set_title('기관구분별 분포', fontproperties=fontprop)
     st.pyplot(fig)
 
 
