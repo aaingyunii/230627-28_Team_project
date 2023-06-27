@@ -2,14 +2,12 @@ import streamlit as st
 import plotly.graph_objects as go
 import matplotlib.pyplot as plt
 import common
-import warnings
-
-
 
 # 한글 폰트 적용
 import matplotlib.font_manager as fm
 
-st.title("Bar chart between '시군명' and '의료기관 수'")
+st.title("Bar chart local and medical center")
+
 # 한글 폰트 설정
 font_path = './NanumGothic.ttf'  # 본인의 한글 폰트 파일 경로로 변경해야 합니다.
 fontprop = fm.FontProperties(fname=font_path)
@@ -27,7 +25,7 @@ st.set_option('deprecation.showPyplotGlobalUse', False)
 
 tab1, tab2 = st.tabs(["Plotly", "Pyplot"])
 
-
+# plotly로 바차트 만들기
 with tab1:
     fig = go.Figure(data=[go.Bar(x=hospital_count.index, y=hospital_count.values)])
     fig.update_layout(
@@ -43,6 +41,8 @@ with tab1:
     st.plotly_chart(fig,
                     use_container_width=True)
 
+
+# pyplot으로 바차트 만들기
 with tab2:
     plt.bar(hospital_count.index, hospital_count.values)
     plt.xlabel('시도', fontproperties=fontprop)  # 한글 폰트 설정
