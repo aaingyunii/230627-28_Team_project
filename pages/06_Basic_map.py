@@ -17,7 +17,7 @@ def load_map():
     df = common.get_data() 
 
     # 서울-경기도 부근 지도 생성
-    m = folium.Map(location=[37.5665, 126.9780], zoom_start=10)
+    m = folium.Map(location=[37.291887, 126.996340], zoom_start=9)
 
     # 데이터프레임 순회하며 위치 표시
     for index, row in df.iterrows():

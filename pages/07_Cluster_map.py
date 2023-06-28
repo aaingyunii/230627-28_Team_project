@@ -19,7 +19,7 @@ def load_data():
 def load_map():
     data = load_data()
 
-    m = folium.Map(location=[data['위도'].mean(), data['경도'].mean()], zoom_start=10)
+    m = folium.Map(location=[37.291887, 126.996340], zoom_start=9)
 
     marker_cluster = plugins.MarkerCluster().add_to(m)
 
