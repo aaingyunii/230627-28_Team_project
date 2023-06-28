@@ -5,7 +5,9 @@ import common
 
 common.page_config()
 
+
 # 응급센터가 존재하는지 체크하는 함수
+@st.cache_data
 def check_option(row) :
     if row['응급의료지원센터여부'] == 'Y': return '<b>응급의료지원센터</b>'
     elif row['전문응급의료센터여부'] == 'Y': return '<b>전문응급의료센터</b>'
