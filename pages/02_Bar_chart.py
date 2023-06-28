@@ -1,62 +1,61 @@
-import pandas as pd
-import streamlit as st
-import matplotlib.pyplot as plt
-import plotly.express as px
-import plotly.graph_objects as go
-from plotly.subplots import make_subplots
-#한글 폰트 적용
-import matplotlib.font_manager as fm
-import common
+# 필요한 라이브러리 가져오기
+import streamlit as st 
+import plotly.graph_objects as go  
+import matplotlib.pyplot as plt  
+import common  
+import matplotlib.font_manager as fm  # Matplotlib의 폰트 관리자 모듈, 한글 폰트 적용
 
-common.page_config()
+# common 파일을 통해 웹 페이지 탭 꾸미기
+common.page_config() 
 
-# 파일 불러오기
-df = common.get_data()
+selected_page = st.sidebar.radio("페이지 선택", ["막대 그래프 페이지"])
+
+if selected_page == "막대 그래프 페이지":
+    st.title("막대 그래프 페이지")
+
 
 # 한글 폰트 설정
 font_path = './NanumGothic.ttf'  # 한글 폰트 파일 경로
-fontprop = fm.FontProperties(fname=font_path)
-plt.rc('font', family=fontprop.get_name())
-
-# # 의료센터별 갯수 구하기
-# center_values = df['업무구분명'].value_counts()
-
-# # 의료센터별 갯수 파이차트로 나타내기
-# labels = center_values.index.tolist()
-# labels = [label.encode('cp949').decode('cp949') for label in labels]
-# counts = center_values.values
-
-# fig, ax = plt.subplots(figsize=(8, 8))
-# ax.pie(counts, labels=labels, autopct='%1.1f%%', startangle=90, textprops={'fontproperties': fontprop})
-# ax.axis('equal')  # 원형 모양 유지
-# ax.set_title('기관구분별 분포',fontproperties=fontprop)
-# st.pyplot(fig)
+fontprop = fm.FontProperties(fname=font_path)  # 한글 폰트를 지정한 FontProperties 객체 생성
+plt.rc('font', family=fontprop.get_name())  # Matplotlib의 폰트 설정을 한글 폰트로 지정
 
 
-# 소재지도로명주소 문자열 분리
-df['소재지도로명주소'].str.split(" ")
+# common 파일을 통해 데이터프레임 불러오기
+df = common.get_data()  
+st.title("막대 그래프") 
 
-# 소재지도로명주소 시,군 단위 문자 추출
-df['소재지'] = df['소재지도로명주소'].str.split(" ", expand=True)[1]
-df.head(3)
+# 시도별 의료기관 수 계산
+# 데이터프레임에서 '시군명' 열을 기준으로 갯수를 계산하여 시도별 의료기관 수 구함
+hospital_count = df['시군명'].value_counts()
 
-# 소재지별 의료기관 업무구분 분류
-df_center = df.copy()
-df_center = df_center.groupby(['소재지', '업무구분명']).count()
-df_center = df_center.pivot_table(index=['소재지', '업무구분명'], values=['병원명/센터명'])
-df_center = df_center.iloc[:, :1]
 
-# 인덱스 재설정
-df_center.reset_index()
+# 경고 메시지를 표시하지 않도록 설정
+st.set_option('deprecation.showPyplotGlobalUse', False)  
 
-# 소재지별 의료기관 업무구분 bar차트
-fig = px.bar(df_center.reset_index(), x='소재지', y='병원명/센터명', color='업무구분명')
-fig.update_layout(
-    title='의료기관별 소재지 및 업무구분',
-    font=dict(color='black')
-)
-colors = ['red', 'blue', 'green', 'purple']
-for i, bar in enumerate(fig.data):
-    bar.marker.color = colors[i % len(colors)]
 
-st.plotly_chart(fig)
+tab1, tab2 = st.tabs(["Plotly", "Pyplot"]) 
+
+# Plotly로 바차트 만들기
+with tab1:
+    fig = go.Figure(data=[go.Bar(x=hospital_count.index, y=hospital_count.values)])  # Plotly의 Figure 객체 생성
+    fig.update_layout(
+        xaxis=dict(
+            title='시도',  # x축 제목 설정
+            tickangle=90,  # x축 눈금 레이블 회전 각도 설정
+        ),
+        yaxis=dict(
+            title='의료기관 수',  # y축 제목 설정
+        ),
+        title='시도별 의료기관 수',  # 그래프 제목 설정
+    )
+    st.plotly_chart(fig, use_container_width=True)  # Plotly 그래프를 Streamlit에 표시
+
+
+# pyplot으로 바차트 만들기
+with tab2:
+    plt.bar(hospital_count.index, hospital_count.values)  # 막대 그래프 생성
+    plt.xlabel('시도', fontproperties=fontprop)  # x축 레이블 설정 (한글 폰트 적용)
+    plt.ylabel('의료기관 수', fontproperties=fontprop)  # y축 레이블 설정 (한글 폰트 적용)
+    plt.title('시도별 의료기관 수', fontproperties=fontprop)  # 그래프 제목 설정 (한글 폰트 적용)
+    plt.xticks(rotation=90, fontproperties=fontprop)  # x축 눈금 레이블 회전 및 한글 폰트 설정
+    st.pyplot()  # Matplotlib 그래프를 Streamlit에 표시
