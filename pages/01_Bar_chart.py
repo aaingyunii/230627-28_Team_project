@@ -8,6 +8,11 @@ import matplotlib.font_manager as fm  # Matplotlib의 폰트 관리자 모듈, �
 # common 파일을 통해 웹 페이지 탭 꾸미기
 common.page_config() 
 
+selected_page = st.sidebar.radio("페이지 선택", ["막대 그래프 페이지"])
+
+if selected_page == "막대 그래프 페이지":
+    st.title("막대 그래프 페이지")
+
 
 # 한글 폰트 설정
 font_path = './NanumGothic.ttf'  # 한글 폰트 파일 경로
@@ -22,8 +27,6 @@ st.title("막대 그래프")
 # 시도별 의료기관 수 계산
 # 데이터프레임에서 '시군명' 열을 기준으로 갯수를 계산하여 시도별 의료기관 수 구함
 hospital_count = df['시군명'].value_counts()
-
-st.sidebar.title("사이드바")
 
 
 # 경고 메시지를 표시하지 않도록 설정
