@@ -46,7 +46,7 @@ def add_special_marker(map_obj, df):
 def main():
     common.page_config()
     st.title("의료시설 마커 표시 지도")
-    st.markdown("**지역급 의료시설 :** 초록색하트마커 \n **권역급 의료시설 :** 빨간색별마커")
+    st.markdown("**지역급 의료시설 :** 초록색하트마커   /   **권역급 의료시설 :** 빨간색별마커")
     # 초기 지도
     initial_map = create_map()
     map_obj = None
