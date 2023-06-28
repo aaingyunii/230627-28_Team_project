@@ -19,14 +19,14 @@ def check_option(row) :
 st.title("Map Visualization")
 st.text("지역급 의료시설은 초록색하트마커로, 권역급 의료시설은 빨간색별마커로 표시")
 
-df = common.get_data()
-
 # 초기 맵
 map_gyeonggi = folium.Map(location=[37.291887, 126.996340], zoom_start=10)
 
 
 @st.cache_data(experimental_allow_widgets=True)
 def load_map():
+    df = common.get_data()
+    
     #업무 구분명이 지역센터나 기관일경우 녹색 하트마커, 그이외(광역) 빨강 스타마커
     for index, row in df.iterrows():
         tip = check_option(row)
