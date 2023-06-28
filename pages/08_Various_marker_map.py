@@ -5,6 +5,7 @@ import common
 
 # 응급센터 종류
 eCenter_array = ("응급의료지원센터여부", "전문응급의료센터여부", "전문응급센터전문분야", "권역외상센터여부", "지역외상센터여부")
+st.cache.clear_cache()
 
 # 응급센터가 존재하는지 체크하는 함수
 def check_option(row) :
