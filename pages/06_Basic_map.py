@@ -34,4 +34,5 @@ def load_map():
     st_folium(m) 
 
 if __name__ == "__main__":
+    st.cache.clear_cache()
     load_map()  # load_map 함수 호출하여 지도 출력
