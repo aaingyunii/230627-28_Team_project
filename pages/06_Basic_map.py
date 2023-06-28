@@ -13,7 +13,7 @@ st.title("기본 지도 공간 시각화")
 st.markdown("- 데이터 셋에 포함된 각 의료센터들을 지도에 마커 표시")
 
 def clear_cache():
-    cache_dir = st._get_cached_data_dir()
+    cache_dir = st._get_cached_widget_id()
     shutil.rmtree(cache_dir)
 
 # 데이터 캐싱을 위한 데코레이터 설정
