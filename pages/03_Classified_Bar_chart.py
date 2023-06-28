@@ -52,9 +52,5 @@ with tab1 :
     st.plotly_chart(fig)
 
 with tab2:
-    df_center.reset_index(inplace=True)
-    plt.figure(figsize=(10, 5))
-    sns.barplot(data=df_center, x='소재지', y='병원명/센터명', hue='업무구분명')
-    plt.xticks(rotation=90)
-    plt.title('의료기관별 소재지 및 업무구분')
-    plt.show()
+
+    

@@ -8,12 +8,6 @@ import matplotlib.font_manager as fm  # Matplotlib의 폰트 관리자 모듈, �
 # common 파일을 통해 웹 페이지 탭 꾸미기
 common.page_config() 
 
-selected_page = st.sidebar.radio("페이지 선택", ["막대 그래프 페이지"])
-
-if selected_page == "막대 그래프 페이지":
-    st.title("막대 그래프 페이지")
-
-
 # 한글 폰트 설정
 font_path = './NanumGothic.ttf'  # 한글 폰트 파일 경로
 fontprop = fm.FontProperties(fname=font_path)  # 한글 폰트를 지정한 FontProperties 객체 생성
