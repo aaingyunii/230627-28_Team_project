@@ -6,7 +6,7 @@ import common
 
 common.page_config()
 
-st.title("시군별 병원 및 의료센터")
+st.title("시군별 병원 및 의료센터 군집화 지도")
 
 @st.cache_data
 def load_data():

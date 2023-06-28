@@ -14,6 +14,8 @@ common.page_config()
 # 파일 불러오기
 df = common.get_data()
 
+st.title("의료기관별 소재지 및 업무구분")
+
 # 한글 폰트 설정
 font_path = './NanumGothic.ttf'  # 한글 폰트 파일 경로
 fontprop = fm.FontProperties(fname=font_path)
@@ -42,7 +44,7 @@ with tab1 :
     # 소재지별 의료기관 업무구분 bar차트
     fig = px.bar(df_center.reset_index(), x='소재지', y='병원명/센터명', color='업무구분명')
     fig.update_layout(
-        title='의료기관별 소재지 및 업무구분',
+        # title='의료기관별 소재지 및 업무구분',
         font=dict(color='black')
     )
     colors = ['red', 'blue', 'green', 'purple']

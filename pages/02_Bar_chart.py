@@ -16,7 +16,8 @@ plt.rc('font', family=fontprop.get_name())  # Matplotlib의 폰트 설정을 한
 
 # common 파일을 통해 데이터프레임 불러오기
 df = common.get_data()  
-st.title("막대 그래프") 
+
+st.title("시도별 의료기관 수") 
 
 # 시도별 의료기관 수 계산
 # 데이터프레임에서 '시군명' 열을 기준으로 갯수를 계산하여 시도별 의료기관 수 구함
@@ -40,7 +41,7 @@ with tab1:
         yaxis=dict(
             title='의료기관 수',  # y축 제목 설정
         ),
-        title='시도별 의료기관 수',  # 그래프 제목 설정
+        # title='시도별 의료기관 수',  # 그래프 제목 설정
     )
     st.plotly_chart(fig, use_container_width=True)  # Plotly 그래프를 Streamlit에 표시
 
@@ -50,6 +51,6 @@ with tab2:
     plt.bar(hospital_count.index, hospital_count.values)  # 막대 그래프 생성
     plt.xlabel('시도', fontproperties=fontprop)  # x축 레이블 설정 (한글 폰트 적용)
     plt.ylabel('의료기관 수', fontproperties=fontprop)  # y축 레이블 설정 (한글 폰트 적용)
-    plt.title('시도별 의료기관 수', fontproperties=fontprop)  # 그래프 제목 설정 (한글 폰트 적용)
+    # plt.title('시도별 의료기관 수', fontproperties=fontprop)  # 그래프 제목 설정 (한글 폰트 적용)
     plt.xticks(rotation=90, fontproperties=fontprop)  # x축 눈금 레이블 회전 및 한글 폰트 설정
     st.pyplot()  # Matplotlib 그래프를 Streamlit에 표시
