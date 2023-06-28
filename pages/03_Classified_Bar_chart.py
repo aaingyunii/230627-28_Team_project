@@ -14,7 +14,7 @@ common.page_config()
 # 파일 불러오기
 df = common.get_data()
 
-st.title("의료기관별 소재지 및 업무구분")
+st.title("의료센터별 소재지 및 업무구분")
 
 # 한글 폰트 설정
 font_path = './NanumGothic.ttf'  # 한글 폰트 파일 경로

@@ -17,8 +17,8 @@ plt.rc('font', family=fontprop.get_name())  # Matplotlib의 폰트 설정을 한
 # common 파일을 통해 데이터프레임 불러오기
 df = common.get_data()  
 
-st.title("시도별 의료기관 수") 
-
+st.title("시도별 의료센터 수") 
+st.markdown("- 각 시도에 존재하는 의료센터들의 수를 합쳐서 시도별로 얼마나 많은 수가 존재하는 지 확인")
 # 시도별 의료기관 수 계산
 # 데이터프레임에서 '시군명' 열을 기준으로 갯수를 계산하여 시도별 의료기관 수 구함
 hospital_count = df['시군명'].value_counts()
