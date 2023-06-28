@@ -25,7 +25,7 @@ df = common.get_data()
 map_gyeonggi = folium.Map(location=[37.291887, 126.996340], zoom_start=10)
 
 
-@st.cache_data
+@st.cache_data(experimental_allow_widgets=True)
 def load_map():
     #업무 구분명이 지역센터나 기관일경우 녹색 하트마커, 그이외(광역) 빨강 스타마커
     for index, row in df.iterrows():
