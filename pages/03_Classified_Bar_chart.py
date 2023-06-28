@@ -59,6 +59,6 @@ with tab2:
     # plt.title('의료기관별 소재지 및 업무구분')
     plt.xlabel('소재지',fontproperties = fontprop)
     plt.ylabel('병원명/센터명',fontproperties = fontprop)
-    plt.legend(title='업무구분명',prop = fontprop)
+    plt.legend(title='업무구분명',fontproperties = fontprop)
     plt.xticks(fontproperties=fontprop, rotation=90)
     st.pyplot()
