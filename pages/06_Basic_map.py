@@ -7,7 +7,6 @@ import common
 
 # common 파일에서 정의된 웹 페이지 탭 꾸미기 함수 호출
 common.page_config()  
-st.cache.clear_cache()
 
 st.title("기본 지도 공간 시각화")
 st.markdown("- 데이터 셋에 포함된 각 의료센터들을 지도에 마커 표시")
@@ -34,5 +33,5 @@ def load_map():
     st_folium(m) 
 
 if __name__ == "__main__":
-    st.cache.clear_cache()
+    st.cache.clear_state()
     load_map()  # load_map 함수 호출하여 지도 출력

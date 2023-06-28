@@ -63,5 +63,5 @@ def load_map():
     st_folium(m)
 
 if __name__ == "__main__":
-    st.cache.clear_cache()
+    st.cache.clear_state()
     load_map()
