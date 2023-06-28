@@ -45,7 +45,7 @@ def add_special_marker(map_obj, df):
                                ).add_to(map_obj)
 def main():
     common.page_config()
-    st.title("Map Visualization")
+    st.title("의료시설 마커 표시 지도")
     st.text("지역급 의료시설은 초록색하트마커로, 권역급 의료시설은 빨간색별마커로 표시")
     # 초기 지도
     initial_map = create_map()
