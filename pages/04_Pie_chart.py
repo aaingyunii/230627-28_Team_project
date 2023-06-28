@@ -38,7 +38,7 @@ with tab1:
         hoverinfo='label+percent',
     ))
     fig.update_layout(
-        title='기관구분별 분포',
+        # title='기관구분별 분포',
         font=dict(family=fontprop.get_name()),
     )
     st.plotly_chart(fig, use_container_width=True)
@@ -49,12 +49,5 @@ with tab2:
     fig, ax = plt.subplots(figsize=(8, 8))
     ax.pie(counts, labels=labels, autopct='%1.1f%%', startangle=90,textprops={'fontproperties': fontprop} )
     ax.axis('equal')  # 원형 모양 유지
-    ax.set_title('기관구분별 분포', fontproperties=fontprop)
+    # ax.set_title('기관구분별 분포', fontproperties=fontprop)
     st.pyplot(fig)
-
-
-# fig, ax = plt.subplots(figsize=(8, 8))
-# ax.pie(counts, labels=labels, autopct='%1.1f%%', startangle=90)
-# ax.axis('equal')  # 원형 모양 유지
-# ax.set_title('기관구분별 분포',fontproperties=fontprop)
-# st.pyplot(fig)
