@@ -8,6 +8,8 @@ from plotly.subplots import make_subplots
 import matplotlib.font_manager as fm
 import common
 
+common.page_config()
+
 # 파일 불러오기
 df = common.get_data()
 
