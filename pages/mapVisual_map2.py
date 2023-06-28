@@ -1,5 +1,5 @@
 import streamlit as st
-from streamlit_folium import folium_static
+from streamlit_folium import st_folium
 import folium
 import common
 
@@ -55,8 +55,7 @@ def load_map():
                         icon=folium.Icon(color='yellow',icon='star')
                         ).add_to(map_gyeonggi)
 
-        folium_static(map_gyeonggi)
-
+    st_folium(map_gyeonggi)
 
 if __name__ == "__main__":
     load_map()  # load_map 함수 호출하여 지도 출력
