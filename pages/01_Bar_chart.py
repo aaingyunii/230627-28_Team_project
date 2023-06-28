@@ -21,7 +21,9 @@ st.title("막대 그래프")
 
 # 시도별 의료기관 수 계산
 # 데이터프레임에서 '시군명' 열을 기준으로 갯수를 계산하여 시도별 의료기관 수 구함
-hospital_count = df['시군명'].value_counts() 
+hospital_count = df['시군명'].value_counts()
+
+st.sidebar.title("사이드바")
 
 
 # 경고 메시지를 표시하지 않도록 설정
