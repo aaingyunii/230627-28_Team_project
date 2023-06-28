@@ -66,7 +66,7 @@ def main():
             add_marker(map_obj, df)
     with col3:
         # 클릭하면 지도상의 마커를 지우고 응급시설 표시
-        if st.button('**응급센터**'):
+        if st.button('**응급의료지원센터**'):
             map_obj = initial_map
             add_special_marker(map_obj, df)
     if map_obj is not None:
