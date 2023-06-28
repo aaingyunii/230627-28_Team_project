@@ -6,7 +6,7 @@ import common
 common.page_config()
 
 st.title("Map Visualization")
-st.text("지역급 의료시설은 초록색하트마커로, 권역급 의료시설은 빨간색별마커로 표시")
+st.write("지역급 의료시설은 초록색하트마커로, 권역급 의료시설은 빨간색별마커로 표시")
 
 # 응급센터가 존재하는지 체크하는 함수
 @st.cache_data
