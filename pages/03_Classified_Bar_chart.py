@@ -15,6 +15,7 @@ common.page_config()
 df = common.get_data()
 
 st.title("의료센터별 소재지 및 업무구분")
+st.markdown("- 의료센터별 소재지 및 업무구분 : 소재지별 보유 응급의료센터 구분 및 수량 확인")
 
 # 한글 폰트 설정
 font_path = './NanumGothic.ttf'  # 한글 폰트 파일 경로

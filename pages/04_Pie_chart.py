@@ -10,6 +10,7 @@ import matplotlib.font_manager as fm
 common.page_config()
 
 st.title("각종 의료 센터/기관 구분별 분포도")
+st.markdown("- 각종 의료 센터/기관 구분별 분포도 : 경기도 내 응급의료센터 구성 비율 확인")
 
 # 한글 폰트 설정
 font_path = './NanumGothic.ttf'  # 한글 폰트 파일 경로
