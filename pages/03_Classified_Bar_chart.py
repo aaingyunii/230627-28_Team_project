@@ -55,9 +55,10 @@ with tab1 :
 
 with tab2:
     plt.figure(figsize=(10, 5))
-    sns.barplot(data=df_center.reset_index(), x='소재지', y='병원명/센터명', hue='업무구분명',FontProperties = fontprop)
+    sns.barplot(data=df_center.reset_index(), x='소재지', y='병원명/센터명', hue='업무구분명' )
     # plt.title('의료기관별 소재지 및 업무구분')
-    plt.xlabel('소재지',FontProperties = fontprop)
-    plt.ylabel('병원명/센터명',FontProperties = fontprop)
-    plt.legend(title='업무구분명',FontProperties = fontprop)
+    plt.xlabel('소재지',fontProperties = fontprop)
+    plt.ylabel('병원명/센터명',fontProperties = fontprop)
+    plt.legend(title='업무구분명',prop = fontprop)
+    plt.xticks(fontproperties=fontprop, rotation=90)
     st.pyplot()
