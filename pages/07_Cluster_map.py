@@ -15,7 +15,7 @@ def load_data():
     data = data[['시군명', '병원명/센터명', '업무구분명', '대표전화번호', '소재지', '소재지도로명주소', '소재지지번주소', '소재지우편번호', '위도', '경도', '응급의료지원센터여부', '전문응급의료센터여부', '전문응급센터전문분야', '권역외상센터여부', '지역외상센터여부']]
     return data
 
-@st.cache(experimental_allow_widgets=True)
+@st.cache_data(experimental_allow_widgets=True)
 def load_map():
     data = load_data()
 
