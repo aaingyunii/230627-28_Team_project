@@ -5,6 +5,8 @@ import common
 
 common.page_config()
 
+st.title("Map Visualization")
+st.text("지역급 의료시설은 초록색하트마커로, 권역급 의료시설은 빨간색별마커로 표시")
 
 # 응급센터가 존재하는지 체크하는 함수
 @st.cache_data
@@ -16,14 +18,12 @@ def check_option(row) :
     elif row['지역외상센터여부'] == 'Y': return '<b>지역외상센터</b>'
 
 
-st.title("Map Visualization")
-st.text("지역급 의료시설은 초록색하트마커로, 권역급 의료시설은 빨간색별마커로 표시")
 
 
 @st.cache_data(experimental_allow_widgets=True)
 def load_map():
     df = common.get_data()
-    
+
     # 초기 맵
     map_gyeonggi = folium.Map(location=[37.291887, 126.996340], zoom_start=10)
 
