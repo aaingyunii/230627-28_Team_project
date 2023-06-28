@@ -75,5 +75,4 @@ def main():
         folium_static(initial_map)
 
 if __name__ == "__main__":
-    st.cache.clear_state()
     main()
