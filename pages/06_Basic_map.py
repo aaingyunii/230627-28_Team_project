@@ -12,7 +12,7 @@ st.title("기본 지도 공간 시각화")
 st.markdown("- 데이터 셋에 포함된 각 의료센터들을 지도에 마커 표시")
 
 # 데이터 캐싱을 위한 데코레이터 설정
-@st.cache_data(experimental_allow_widgets=True)  
+@st.cache(experimental_allow_widgets=True)  
 def load_map():
     # common 파일에서 정의된 데이터프레임을 가져오는 함수 호출
     df = common.get_data() 
