@@ -7,7 +7,7 @@ import matplotlib.font_manager as fm  # 한글 폰트 적용을 위한 라이브
 # common 파일에서 정의된 웹 페이지 탭 꾸미기 함수 호출
 common.page_config() 
 
-st.title("위도, 경도를 이용한\n의료시설 분포도 ") 
+st.title("위도, 경도를 이용한  의료시설 분포도 ") 
 
 # 한글 폰트 설정
 font_path = './NanumGothic.ttf'  # 한글 폰트 파일 경로
