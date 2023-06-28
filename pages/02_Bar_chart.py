@@ -16,19 +16,19 @@ font_path = './NanumGothic.ttf'  # 한글 폰트 파일 경로
 fontprop = fm.FontProperties(fname=font_path)
 plt.rc('font', family=fontprop.get_name())
 
-# 의료센터별 갯수 구하기
-center_values = df['업무구분명'].value_counts()
+# # 의료센터별 갯수 구하기
+# center_values = df['업무구분명'].value_counts()
 
-# 의료센터별 갯수 파이차트로 나타내기
-labels = center_values.index.tolist()
-labels = [label.encode('cp949').decode('cp949') for label in labels]
-counts = center_values.values
+# # 의료센터별 갯수 파이차트로 나타내기
+# labels = center_values.index.tolist()
+# labels = [label.encode('cp949').decode('cp949') for label in labels]
+# counts = center_values.values
 
-fig, ax = plt.subplots(figsize=(8, 8))
-ax.pie(counts, labels=labels, autopct='%1.1f%%', startangle=90, textprops={'fontproperties': fontprop})
-ax.axis('equal')  # 원형 모양 유지
-ax.set_title('기관구분별 분포',fontproperties=fontprop)
-st.pyplot(fig)
+# fig, ax = plt.subplots(figsize=(8, 8))
+# ax.pie(counts, labels=labels, autopct='%1.1f%%', startangle=90, textprops={'fontproperties': fontprop})
+# ax.axis('equal')  # 원형 모양 유지
+# ax.set_title('기관구분별 분포',fontproperties=fontprop)
+# st.pyplot(fig)
 
 
 # 소재지도로명주소 문자열 분리
