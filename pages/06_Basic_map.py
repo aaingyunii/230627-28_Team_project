@@ -4,12 +4,17 @@ from streamlit_folium import st_folium  # Streamlit-Folium: Streamlit에 Folium 
 import folium  # Folium: 인터랙티브 지도 생성을 위한 라이브러리
 import pandas as pd  
 import common 
+import shutil
 
 # common 파일에서 정의된 웹 페이지 탭 꾸미기 함수 호출
 common.page_config()  
 
 st.title("기본 지도 공간 시각화")
 st.markdown("- 데이터 셋에 포함된 각 의료센터들을 지도에 마커 표시")
+
+def clear_cache():
+    cache_dir = st._get_cached_data_dir()
+    shutil.rmtree(cache_dir)
 
 # 데이터 캐싱을 위한 데코레이터 설정
 @st.cache_data(experimental_allow_widgets=True)  
@@ -33,5 +38,5 @@ def load_map():
     st_folium(m) 
 
 if __name__ == "__main__":
-    st.cache.clear_state()
+    clear_cache()
     load_map()  # load_map 함수 호출하여 지도 출력
