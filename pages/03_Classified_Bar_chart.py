@@ -58,6 +58,6 @@ with tab2:
     sns.barplot(data=df_center.reset_index(), x='소재지', y='병원명/센터명', hue='업무구분명',FontProperties = fontprop)
     # plt.title('의료기관별 소재지 및 업무구분')
     plt.xlabel('소재지',,FontProperties = fontprop)
-    plt.ylabel('병원명/센터명',,FontProperties = fontprop)
-    plt.legend(title='업무구분명',,FontProperties = fontprop)
+    plt.ylabel('병원명/센터명', FontProperties = fontprop)
+    plt.legend(title='업무구분명', FontProperties = fontprop)
     st.pyplot()
