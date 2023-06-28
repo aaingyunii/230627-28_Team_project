@@ -54,5 +54,10 @@ with tab1 :
     st.plotly_chart(fig)
 
 with tab2:
-
-    pass
+    plt.figure(figsize=(10, 5))
+    sns.barplot(data=df_center.reset_index(), x='소재지', y='병원명/센터명', hue='업무구분명')
+    # plt.title('의료기관별 소재지 및 업무구분')
+    plt.xlabel('소재지')
+    plt.ylabel('병원명/센터명')
+    plt.legend(title='업무구분명')
+    st.pyplot()
