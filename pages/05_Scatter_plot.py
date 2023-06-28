@@ -7,7 +7,7 @@ import matplotlib.font_manager as fm  # 한글 폰트 적용을 위한 라이브
 # common 파일에서 정의된 웹 페이지 탭 꾸미기 함수 호출
 common.page_config() 
 
-st.title("위도, 경도를 이용한  의료시설 분포도 ") 
+st.title("소재지 위도와 경도를 이용한 의료시설들 산점도") 
 
 # 한글 폰트 설정
 font_path = './NanumGothic.ttf'  # 한글 폰트 파일 경로
@@ -34,7 +34,7 @@ with tab1:
         yaxis=dict(
             title='위도',
         ),
-        title='소재지 위도와 경도를 이용한 산점도',
+        # title='소재지 위도와 경도를 이용한 산점도',
     )
     st.plotly_chart(fig, use_container_width=True)  # Plotly 그래프를 Streamlit에 표시
 
@@ -44,6 +44,6 @@ with tab2:
     plt.scatter(df['경도'], df['위도'])  # scatter 함수를 사용하여 산점도 그래프 생성
     plt.xlabel('경도', fontproperties=fontprop)  # x축 레이블 설정 (한글 폰트 적용)
     plt.ylabel('위도', fontproperties=fontprop)  # y축 레이블 설정 (한글 폰트 적용)
-    plt.title('소재지 위도와 경도를 이용한 산점도', fontproperties=fontprop)  # 그래프 제목 설정 (한글 폰트 적용)
+    # plt.title('소재지 위도와 경도를 이용한 산점도', fontproperties=fontprop)  # 그래프 제목 설정 (한글 폰트 적용)
     plt.xticks(rotation=90, fontproperties=fontprop)  # x축 눈금 레이블 회전 및 한글 폰트 설정
     st.pyplot()  
