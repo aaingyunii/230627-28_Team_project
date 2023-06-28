@@ -4,7 +4,8 @@ import common
 # 공통 설정 함수 호출
 common.page_config()
 
-st.markdown("# 경기도 응급의료기관 및 응급의료지원센터 시각화")
+st.markdown("# 경기도 응급의료기관 및")
+st.markdown("# 응급의료지원센터 데이터 시각화")
 
 #병원 데이터셋에 대한 설명 출력
 st.caption("""
