@@ -1,8 +1,6 @@
 import streamlit as st
 import pandas as pd
 
-# 데이터를 캐시에 저장하는 함수
-@st.cache_data
 def get_data():
     return pd.read_csv("./hospital.csv",encoding="cp949")
 
